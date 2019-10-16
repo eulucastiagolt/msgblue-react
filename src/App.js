@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
+import { Button } from '@blueprintjs/core';
 import './style.css';
-import './assets/css/bootstrap-material-design.min.css'
 
 function App() {
   return (
