@@ -1,14 +1,18 @@
 import React from 'react';
-import Header from './components/Header';
-import { Button } from '@blueprintjs/core';
-import './style.css';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Login from './pages/Login';
 
 function App() {
-  return (
-    <>
-      <Header/>
-    </>
-  );
+
+    return (
+        <Router>
+            <Switch>
+                <Route path="/login">
+                    <Login />
+                </Route>
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;

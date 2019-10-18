@@ -1,16 +1,20 @@
 import React from 'react';
-import { Navbar, Button, Alignment } from '@blueprintjs/core';
+import { PageHeader, Button } from 'antd';
+import 'antd/dist/antd.css';
+
 
 export default function Header()
 {
     return (
-       <Navbar>
-            <Navbar.Group align={Alignment.LEFT}>
-                <Navbar.Heading>Nessneger Blue</Navbar.Heading>
-                <Navbar.Divider />
-                <Button className="bp3-minimal" icon="chat" text="Chat" />
-                <Button className="bp3-minimal" icon="inbox" text="Canais" />
-            </Navbar.Group>
-        </Navbar>
+        <>
+            <PageHeader
+                onBack={()=>null}
+                title="Messenger Blue"
+                extra={[
+                    <Button type="dashed">Chat</Button>,
+                    <Button type="primary" >Chanel</Button>
+                ]}
+            />
+        </>
     )
 }
