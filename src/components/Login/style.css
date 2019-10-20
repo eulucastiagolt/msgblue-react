@@ -1,0 +1,47 @@
+.loginContainer{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.spaceLogin{
+    background-color: #fff;
+    padding: 60px 30px;
+    border-radius: 10px;
+}
+
+.titleLogin{
+    text-align: center;
+}
+
+.textLogin{
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.loginIcon{
+    font-size: 50px;
+    color: #00ddff;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.buttonOpenchat:hover{
+    border-color: #00ddff;
+    color: #00ddff;
+}
+
+.buttonNewchat{
+    background: #00ddff;
+    color: #fff;
+}
+
+.buttonNewchat:hover{
+    background: #00ddffa9;
+    color:#fff;
+}

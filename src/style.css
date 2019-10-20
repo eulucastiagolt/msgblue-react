@@ -12,6 +12,7 @@ html, body, #root{
 
 body{
     font-family: 'Roboto', sans-serif;
+    background-color: #333333;
 }
 
 #header{
