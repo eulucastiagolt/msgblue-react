@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import {Typography, Button, Row, Col, Icon, Input} from 'antd';
+import React from 'react';
+import { Typography, Button, Row, Col, Icon, Input } from 'antd';
+import { useHistory } from 'react-router-dom';
 import './style.css';
 
 const { Title, Paragraph } = Typography;
@@ -7,16 +8,15 @@ const { Title, Paragraph } = Typography;
 export default function Login()
 {
 
-    const [token, setToken] = useState('');
-
+    const history = useHistory();
     const url = "https://api.hashify.net/keygen/32";
-    const getToken = ()=>{
+    const getToken = () => {
         fetch(url).then(res => res.json()).then((result)=>{
-            setToken(result.KeyHex);
-            console.log(token);
+            localStorage.setItem("accesstoken", result.KeyHex);
+            history.go("/chat");
         });
     }
-
+    
     return (
         <>
             <div className='loginContainer'>
@@ -26,7 +26,7 @@ export default function Login()
                             <Icon type="message" className="loginIcon" theme="outlined" />
                             <Title className="titleLogin" level={2}>Messenger Blue</Title>
                             <Paragraph className="textLogin">
-                                Insira um token para inicar um chat em grup ou cria um novo chat
+                                Insira um token para inicar um chat em grupo ou crie um novo chat
                             </Paragraph>
                         </Col>
                     </Row>

@@ -1,31 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { Layout } from 'antd';
 import Header from './components/Header';
 import Login from './pages/Login';
 import './style.css';
 
 function App() {
 
-    const [token, setToken] = useState('');
-    const [login, setLogin] = useState('');
+    const login = localStorage.getItem('accesstoken');
 
     return (
-        <Router>
-            { login === '' ? <Redirect to="/login" /> : '' }
-            { login === '' ? '' : <Header /> }
-            <Switch>
-                <Router exact path="/">
+        <Layout className="layout">
+            <Router>
+                { !login ? <Redirect to="/login" /> : '' }
+                { !login ? '' : <Header /> }
+                <Switch>
+                    <Router exact path="/">
+                        
+                    </Router>
+                    <Route path="/login">
+                        { !login ? '' : <Redirect to="/chat" /> }
+                        <Login />
+                    </Route>
+                    <Router path="/logout">
+                        {localStorage.removeItem("accesstoken")}
+                        <Redirect from="/logout" to="/login" />
+                    </Router>
+                    <Router path="/chat">
 
-                </Router>
-                <Route path="/login">
-                    { login === '' ? '' : <Redirect to="/" /> }
-                    <Login />
-                </Route>
-                <Router path="/register">
+                    </Router>
+                    <Router path="/chanel">
 
-                </Router>
-            </Switch>
-        </Router>
+                    </Router>
+                </Switch>
+            </Router>
+        </Layout>
     );
 }
 
